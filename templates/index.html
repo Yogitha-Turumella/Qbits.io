@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Encryption with QKD</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <script>
+        function redirectToEncryption() {
+            let message = document.getElementById("message").value.trim();
+            
+            if (!message) {
+                alert("Please enter a valid message.");
+                return;
+            }
+
+            // Sanitize input and encode message
+            const sanitizedMessage = encodeURIComponent(message);
+            window.location.href = `/encrypt_page?message=${sanitizedMessage}`;
+        }
+    </script>
+</head>
+<body>
+    <main class="container">
+        <!-- Left Section: Input Form -->
+        <section class="left">
+            <h2>Quantum Encryption</h2>
+            <p>Enter your message to encrypt using Quantum Key Distribution (QKD).</p>
+            <input type="text" id="message" placeholder="Type your message here..." required aria-label="Message Input">
+            <button onclick="redirectToEncryption()" aria-label="Encrypt Message">Encrypt Message</button>
+        </section>
+
+        <!-- Right Section: Illustration -->
+        <section class="right">
+            <img src="{{ url_for('static', filename='encryption.png') }}" alt="Encryption Illustration">
+        </section>
+    </main>
+</body>
+</html>

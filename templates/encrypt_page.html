@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypted Message</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+    <main class="container">
+        <div class="left">
+            <h2>🔒 Encryption Result</h2>
+            
+            <label class="checkbox-label">
+                <input type="checkbox" id="eavesdrop"> Simulate Eavesdropping
+            </label>
+
+            <button id="encrypt-btn">Encrypt</button>
+
+            <div class="result-box">
+                <h3>🔑 Encrypted Data</h3>
+                <p>Quantum Key: <span id="qkd-key"></span></p>
+                <p>Encrypted Message: <span id="encrypted-message"></span></p>
+            </div>
+
+            <h3>🔓 Decrypt Message</h3>
+            <button id="decrypt-btn">Decrypt</button>
+            <p>Decrypted Message: <span id="decrypted-message"></span></p>
+        </div>
+        <div class="right">
+            <img src="{{ url_for('static', filename='secure.jpg') }}" alt="Secure Encryption">
+        </div>
+    </main>
+
+    <script>
+        function getMessageFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get("message");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let message = getMessageFromURL();
+
+            if (!message) {
+                alert("No message found. Redirecting to home page.");
+                window.location.href = "/";
+                return;
+            }
+
+            document.getElementById("encrypt-btn").addEventListener("click", function () {
+                let eavesdrop = document.getElementById("eavesdrop").checked;
+
+                fetch("/encrypt", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: message, eavesdrop: eavesdrop })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.encrypted_message) {
+                        document.getElementById("qkd-key").textContent = data.qkd_key;
+                        document.getElementById("encrypted-message").textContent = data.encrypted_message;
+                    } else {
+                        alert("Encryption failed: " + data.error);
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+
+            document.getElementById("decrypt-btn").addEventListener("click", function () {
+                let encryptedMessage = document.getElementById("encrypted-message").textContent;
+                let qkdKey = document.getElementById("qkd-key").textContent;
+
+                fetch("/decrypt", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ encrypted_message: encryptedMessage, qkd_key: qkdKey })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.decrypted_message) {
+                        document.getElementById("decrypted-message").textContent = data.decrypted_message;
+                    } else {
+                        alert("Decryption failed: " + data.error);
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+/* General Styles */
+body {
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: #F6F2ED; /* Soft Off-White Text */
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    background: #F6F2ED; /* Off-White Box */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(104, 6, 6, 0.5);
+    overflow: hidden;
+    width: 80%;
+    max-width: 900px;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 0.5s ease-in-out forwards;
+    color: rgb(104, 6, 6); /* Text Color */
+}
+
+/* Left Section */
+.left {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Right Section */
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Profile Icon Styling */
+.right img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 50%;
+    padding: 5px;
+    background: rgba(104, 6, 6, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.right img:hover {
+    transform: scale(1.1);
+}
+
+/* Headings */
+h2, h3 {
+    color: rgb(104, 6, 6); /* Deep Red */
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+/* Buttons */
+button {
+    background: rgb(104, 6, 6);
+    color: #F6F2ED;
+    padding: 12px 22px;
+    border: 2px solid #F6F2ED;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+    display: block;
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #F6F2ED;
+    color: rgb(104, 6, 6);
+    border: 2px solid rgb(104, 6, 6);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Result Box */
+.result-box {
+    padding: 15px;
+    border: 2px solid rgb(104, 6, 6);
+    border-radius: 6px;
+    background: #F6F2ED;
+    margin-top: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    white-space: pre-wrap;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeIn 0.8s ease-in-out forwards 0.3s;
+    color: rgb(104, 6, 6);
+}
+
+/* Checkbox Label */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: rgb(104, 6, 6);
+}
+
+.checkbox-label input {
+    margin-right: 8px;
+}
+
+/* Icon Adjustments */
+.icon {
+    font-size: 18px;
+    color: rgb(104, 6, 6);
+    margin-right: 8px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .right {
+        display: none;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
