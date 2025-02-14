@@ -1,7 +1,7 @@
-# **QBits.io: Quantum Encryption Demo**
+# **QBits: Quantum Encryption Demo**
 
 ## **🔹 Introduction**
-**QBits.io** is a **Quantum Key Distribution (QKD) demo** built using **Flask and Qiskit**, demonstrating how quantum cryptography enhances security beyond classical encryption algorithms like **AES** and **RSA**. This project highlights how **Quantum Bits (Qubits)** can provide **unbreakable encryption** through the **BB84 protocol**.
+**QBits** is a **Quantum Key Distribution (QKD) demo** built using **Flask and Qiskit**, demonstrating how quantum cryptography enhances security beyond classical encryption algorithms like **AES** and **RSA**. This project highlights how **Quantum Bits (Qubits)** can provide **unbreakable encryption** through the **BB84 protocol**.
 
 ---
 
