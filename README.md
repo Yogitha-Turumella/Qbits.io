@@ -22,11 +22,11 @@
 | **Eavesdropping Detection** | **No in-built detection** | **Instant detection** if an attacker tries to intercept the key |
 | **Longevity of Security** | **Vulnerable in the post-quantum era** | **Future-proof and quantum-safe** |
 
-🚀 **QBits.io demonstrates the future of encryption—one that remains secure even against quantum computers!**
+🚀 **QBits demonstrates the future of encryption—one that remains secure even against quantum computers!**
 
 ---
 
-## **🔹 Quantum Concepts Used in QBits.io**
+## **🔹 Quantum Concepts Used in QBits**
 
 ### **1️⃣ Quantum Key Distribution (QKD) – BB84 Protocol**  
 The **BB84 protocol** ensures that encryption keys are securely exchanged between parties. Unlike classical key exchange methods, it prevents eavesdropping by leveraging:
@@ -45,7 +45,7 @@ Traditional encryption relies on **pseudo-random numbers**, which can be predict
 - Qiskit
 - Git
 
-### **📌 Steps to Run QBits.io**
+### **📌 Steps to Run QBits**
 1️⃣ Clone the repository:
 ```sh
  git clone https://github.com/Yogitha-Turumella/QBits.io.git
@@ -74,5 +74,5 @@ Feel free to fork this repository, raise issues, and submit pull requests to imp
 
 ---
 
-🚀 **Explore the power of Quantum Cryptography with QBits.io!** 🔐
+🚀 **Explore the power of Quantum Cryptography with QBits!** 🔐
 
